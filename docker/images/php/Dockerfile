@@ -1,4 +1,4 @@
-FROM php:8.3-fpm
+FROM php:8.5-fpm
 
 # Installing dependencies for the PHP modules
 RUN set -eux; \
@@ -22,8 +22,10 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/
 
 # Installing additional PHP modules
+# Note: since PHP 8.5, OPcache is built statically into the PHP binary and is no
+# longer shipped as a shared extension, so it must not be passed to ext-install.
 RUN set -eux; \
-    docker-php-ext-install mysqli pdo pdo_mysql zip opcache; \
+    docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql zip; \
     docker-php-ext-configure gd \
             --prefix=/usr \
             --with-jpeg \

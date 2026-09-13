@@ -3,15 +3,19 @@
 .DS_Store
 
 vendor/
-cms/.editorconfig
-cms/.gitattributes
-cms/LICENSE.txt
-cms/README.md
-cms/recipes/
-cms/web/core/
-cms/web/modules/contrib/
-cms/web/profiles/contrib/
-cms/web/themes/contrib/
+data/
+cms/*
+!cms/web/
+cms/web/*
+!cms/web/modules/
+cms/web/modules/*
+!cms/web/modules/custom/
+!cms/web/profiles/
+cms/web/profiles/*
+!cms/web/profiles/custom/
+!cms/web/themes/
+cms/web/themes/*
+!cms/web/themes/custom/
 
 cms/web/sites/*/files
 cms/web/sites/*/private
